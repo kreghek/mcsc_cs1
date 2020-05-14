@@ -2,7 +2,7 @@
 
 namespace Lib
 {
-    public class Producer
+    public class TwinProducer
     {
         public async Task StartGenerateValuesAsync(IValueProvider provider, int iterationCount)
         {
@@ -13,6 +13,7 @@ namespace Lib
                 {
                     await Task.Delay(1000);
                     provider.SetValue(valueCounter.ToString());
+                    provider.SetValue("bar" + valueCounter.ToString());
                     valueCounter++;
                 }
             });
